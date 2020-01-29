@@ -1,7 +1,7 @@
 * Installation
 :PROPERTIES:
 :ARCHIVE_TIME: 2020-01-26 Sun 15:08
-:ARCHIVE_FILE: ~/src/work/omnyway-labs/{{namespace}}/README.org
+:ARCHIVE_FILE: ~/src/work/{{group}}/{{name}}/README.org
 :ARCHIVE_CATEGORY: README
 :END:
 

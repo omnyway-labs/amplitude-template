@@ -21,7 +21,6 @@
              ["README.org" (render "README.org" data)]
              ["shadow-cljs.edn" (render "shadow-cljs.edn" data)]
              ["etc/schema.graphql" (render "etc/schema.graphql" data)]
-             ["src/{{nested-dirs}}/foo.clj" (render "foo.clj" data)]
              ["src/{{nested-dirs}}/amplify.cljs" (render "src/amplify.cljs" data)]
              ["src/{{nested-dirs}}/core.cljs" (render "src/core.cljs" data)]
              ["src/{{nested-dirs}}/db.cljs" (render "src/db.cljs" data)]
@@ -40,17 +39,17 @@
              ["src/{{nested-dirs}}/views/container.cljs" (render "src/views/container.cljs" data)]
              ["src/{{nested-dirs}}/views/core.cljs" (render "src/views/core.cljs" data)]
              ["public/index.html" (render "public/index.html" data)]
-             ["public/css/aws-amplify-ui-style.css" (render "public/css/aws-amplify-ui-style.css" data)]
-             ["public/css/chosen-sprite.png" (render "public/css/chosen-sprite.png" data)]
-             ["public/css/chosen-sprite@2x.png" (render "public/css/chosen-sprite@2x.png" data)]
-             ["public/css/layout.css" (render "public/css/layout.css" data)]
-             ["public/css/material-design-iconic-font.min.css" (render "public/css/material-design-iconic-font.min.css" data)]
-             ["public/css/re-com.css" (render "public/css/re-com.css" data)]
-             ["public/css/reset.css" (render "public/css/reset.css" data)]
-             ["public/css/style.css" (render "public/css/style.css" data)]
-             ["public/fonts/Material-Design-Iconic-Font.eot" (render "public/fonts/Material-Design-Iconic-Font.eot" data)]
-             ["public/fonts/Material-Design-Iconic-Font.svg" (render "public/fonts/Material-Design-Iconic-Font.svg" data)]
-             ["public/fonts/Material-Design-Iconic-Font.ttf" (render "public/fonts/Material-Design-Iconic-Font.ttf" data)]
-             ["public/fonts/Material-Design-Iconic-Font.woff" (render "public/fonts/Material-Design-Iconic-Font.woff" data)]
-             ["public/fonts/Material-Design-Iconic-Font.woff2" (render "public/fonts/Material-Design-Iconic-Font.woff2" data)]
+             "public/css/aws-amplify-ui-style.css"
+             "public/css/chosen-sprite.png"
+             "public/css/chosen-sprite@2x.png"
+             "public/css/layout.css"
+             "public/css/material-design-iconic-font.min.css"
+             "public/css/re-com.css"
+             "public/css/reset.css"
+             "public/css/style.css"
+             "public/fonts/Material-Design-Iconic-Font.eot"
+             "public/fonts/Material-Design-Iconic-Font.svg"
+             "public/fonts/Material-Design-Iconic-Font.ttf"
+             "public/fonts/Material-Design-Iconic-Font.woff"
+             "public/fonts/Material-Design-Iconic-Font.woff2"
              )))

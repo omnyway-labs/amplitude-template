@@ -1,26 +1,29 @@
 # amplitude-template
 
-FIXME: my new template.
+Use `seancorfield/clj-new` to create a basic project that uses AWS Amplify, Clojurescript, Shadow-Cljs and Re-Frame
 
 ## Usage
 
-FIXME: write usage documentation!
+### Set up an alias for clj-new 
 
-Build a deployable jar of this template:
+In your `.clojure/deps.edn`:
 
-    $ clojure -A:jar
+```clj
+    {:aliases
+     {:new {:extra-deps {seancorfield/clj-new
+                         {:mvn/version "0.8.6"}}
+            :main-opts ["-m" "clj-new.create"]}}
+     ...}
+```
 
-Install it locally:
+### Generate the project from a local git clone of the amplitude-template repo
 
-    $ clojure -A:install
+After you cloned the repo to your local disk:
 
-Deploy it to Clojars -- needs `CLOJARS_USERNAME` and `CLOJARS_PASSWORD` environment variables:
+clj -A:new  <path-to-amplitude-template repo>::amplitude-template omnywayLabs/testProject
 
-    $ clojure -A:deploy
+__NOTE:__ do not have dashes or underscores in the project group / name. Stupid Javascript freaks out 
 
 ## License
-
-Copyright © 2020 Rberger
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+MIT License
+Copyright © 2020 Omnyway, Inc.

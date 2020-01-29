@@ -1,0 +1,23 @@
+{:source-paths ["src"]
+ :nrepl        {:port 9001}
+ :dependencies
+ [[cider/cider-nrepl "0.22.0"]
+  [binaryage/devtools "0.9.10"]
+  [reagent "0.8.1"]
+  [re-frame "0.10.6"]
+  [re-com "2.6.0"]
+  [com.andrewmcveigh/cljs-time "0.5.2"]
+  [day8.re-frame/http-fx "0.1.6"]
+  [day8.re-frame/async-flow-fx "0.0.11"]
+  [alandipert/storage-atom "2.0.1"]
+  [clj-commons/secretary "1.2.4"]
+  [rid3 "0.2.1-1"]]
+ :builds       {:app {:target     :browser
+                      :output-dir "public/js"
+                      :asset-path "/js"
+                      :modules    {:main {:entries [{{namespace}}.core]}}
+                      :devtools   {:after-load {{namespace}}.core/init
+                                   :http-root  "public"
+                                   :http-port  8080
+                                   :preloads   [devtools.preload]}
+                      :release    {:output-dir "dist/js"}}}}

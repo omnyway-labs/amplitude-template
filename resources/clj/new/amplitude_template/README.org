@@ -1,0 +1,115 @@
+* Installation
+:PROPERTIES:
+:ARCHIVE_TIME: 2020-01-26 Sun 15:08
+:ARCHIVE_FILE: ~/src/work/omnyway-labs/{{namespace}}/README.org
+:ARCHIVE_CATEGORY: README
+:END:
+
+#+BEGIN_SRC sh
+npm install -g @aws-amplify/cli
+npm install -g shadow-cljs
+
+amplify init
+
+
+? Enter a name for the project {{namespace}}
+? Enter a name for the environment dev
+? Choose your default editor: None
+? Choose the type of app that you're building javascript
+Please tell us about your project
+? What javascript framework are you using react
+? Source Directory Path:  src
+? Distribution Directory Path: dist
+? Build Command:  make release
+? Start Command: make
+
+# choose the AWS profile and complete the initialization
+
+#+END_SRC
+
+Note the =build= and =start= commands above (make release and make)
+
+
+* Getting Started
+
+** Auth
+
+#+BEGIN_SRC sh
+
+amplify add auth
+# choose defaults
+#+END_SRC
+
+
+** GraphQL API
+
+#+BEGIN_SRC sh
+amplify add api
+
+
+ Please select from one of the below mentioned services: GraphQL
+? Provide API name: {{namespace}}
+? Choose the default authorization type for the API API key
+? Enter a description for the API key: test
+? After how many days from now the API key should expire (1-365): 100
+? Do you want to configure advanced settings for the GraphQL API No, I am done.
+? Do you have an annotated GraphQL schema? Yes
+? Provide your schema file path: etc/schema.graphql
+
+#+END_SRC
+
+Note the path to the graphql schema above (etc/schema.graphql)
+
+=amplify-push= will generate the Javascript code for graphql mutations,
+queries and subscriptions
+
+#+BEGIN_SRC sh
+amplify push
+
+? Do you want to generate code for your newly created GraphQL API Yes
+? Choose the code generation language target javascript
+? Enter the file name pattern of graphql queries, mutations and subscriptions src/graphql/**/*.js
+? Do you want to generate/update all possible GraphQL operations - queries, mutations and subscriptions Yes
+? Enter maximum statement depth [increase from default if your schema is deeply nested] 2
+⠼ Updating resources in the cloud. This may take a few minutes...
+
+#+END_SRC
+
+** Storage
+
+For uploading data to S3
+#+BEGIN_SRC sh
+amplify add storage
+#+END_SRC
+
+** Run locally
+
+#+BEGIN_SRC sh
+make
+# spins up the app on port 8080
+#+END_SRC
+
+#+html: <p align="center"><img src="etc/screen.png" /></p>
+
+* Development
+
+** Cider
+
+#+BEGIN_SRC sh
+make
+#+END_SRC
+
+Go to http://localhost:8080 and C-c K to open the console. This starts
+up the session for us to connect via nrepl
+
+M-x cider-connect-cljs localhost 9001
+
+use =shadow= and select "app" as the app-id
+
+
+** Using an existing amplify env
+
+#+BEGIN_SRC sh
+amplify env pull
+make gql
+#+END_SRC

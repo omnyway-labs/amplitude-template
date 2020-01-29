@@ -1,0 +1,6 @@
+type Kv @model {
+  id: ID!
+  key: String
+  value: String
+  datetime: String
+}

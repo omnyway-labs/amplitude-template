@@ -1,0 +1,35 @@
+{
+    "dependencies": {
+        "@aws-amplify/api": "^2.1.2",
+        "@aws-amplify/pubsub": "^2.1.2",
+        "amplify": "0.0.11",
+        "aws-amplify": "^1.1.18",
+        "aws-amplify-react": "^2.5.4",
+        "create-react-class": "15.6.3",
+	"@fortawesome/fontawesome-svg-core": "^1.2.4",
+	"@fortawesome/free-solid-svg-icons": "^5.3.1",
+	"@fortawesome/react-fontawesome": "^0.1.2",
+	"bootstrap": "4.3.1",
+        "jquery": "3.4.1",
+        "d3": "5.0.0",
+        "process": "0.11.10",
+        "querystring-es3": "^0.2.1",
+        "react": "16.7.0",
+        "react-dom": "16.7.0",
+        "reactstrap": "8.0.1",
+        "util": "^0.11.1"
+    },
+    "name": "{{name}}",
+    "scripts": {
+        "clean": "rm -rf target; rm -rf resources/public/js",
+        "test": "karma start --single-run",
+        "compile-tests": "shadow-cljs -A:dev compile test;",
+        "server": "shadow-cljs server;",
+        "stop": "shadow-cljs stop",
+        "repl": "shadow-cljs cljs-repl app",
+        "release": "shadow-cljs release app;",
+        "devcards": "shadow-cljs watch devcards",
+        "dev": "shadow-cljs watch app;"
+    },
+    "license": "MIT"
+}

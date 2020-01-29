@@ -1,12 +1,18 @@
 (ns clj.new.amplitude-template
   "Generate an AWS Amplify / Clojurescript / Re-Frame project."
-  (:require [clj.new.templates :refer [renderer project-data project-name ->files]]))
+  (:require [clj.new.templates :refer [renderer project-data project-name sanitize sanitize-ns ->files]]))
 
 (defn amplitude-template
   "FIXME: write documentation"
   [name]
+  (println "name: " name)
   (let [render (renderer "amplitude-template")
-        data   (project-data name)]
+        base-data (project-data name)
+        _ (println "base-data: " base-data)
+        namespace {:namespace (sanitize (sanitize-ns name))}
+        _ (println "namespace: " namespace)
+        data   (merge base-data namespace)]
+
     (println "Generating a project called"
              (project-name name)
              "based on the 'app' template.")
@@ -39,17 +45,17 @@
              ["src/{{nested-dirs}}/views/container.cljs" (render "src/views/container.cljs" data)]
              ["src/{{nested-dirs}}/views/core.cljs" (render "src/views/core.cljs" data)]
              ["public/index.html" (render "public/index.html" data)]
-             "public/css/aws-amplify-ui-style.css"
-             "public/css/chosen-sprite.png"
-             "public/css/chosen-sprite@2x.png"
-             "public/css/layout.css"
-             "public/css/material-design-iconic-font.min.css"
-             "public/css/re-com.css"
-             "public/css/reset.css"
-             "public/css/style.css"
-             "public/fonts/Material-Design-Iconic-Font.eot"
-             "public/fonts/Material-Design-Iconic-Font.svg"
-             "public/fonts/Material-Design-Iconic-Font.ttf"
-             "public/fonts/Material-Design-Iconic-Font.woff"
-             "public/fonts/Material-Design-Iconic-Font.woff2"
+             ["public/css/aws-amplify-ui-style.css" (render "public/css/aws-amplify-ui-style.css")]
+             ["public/css/chosen-sprite.png" (render "public/css/chosen-sprite.png")]
+             ["public/css/chosen-sprite@2x.png" (render "public/css/chosen-sprite@2x.png")]
+             ["public/css/layout.css" (render "public/css/layout.css")]
+             ["public/css/material-design-iconic-font.min.css" (render "public/css/material-design-iconic-font.min.css")]
+             ["public/css/re-com.css" (render "public/css/re-com.css")]
+             ["public/css/reset.css" (render "public/css/reset.css")]
+             ["public/css/style.css" (render "public/css/style.css")]
+             ["public/fonts/Material-Design-Iconic-Font.eot" (render "public/fonts/Material-Design-Iconic-Font.eot")]
+             ["public/fonts/Material-Design-Iconic-Font.svg" (render "public/fonts/Material-Design-Iconic-Font.svg")]
+             ["public/fonts/Material-Design-Iconic-Font.ttf" (render "public/fonts/Material-Design-Iconic-Font.ttf")]
+             ["public/fonts/Material-Design-Iconic-Font.woff" (render "public/fonts/Material-Design-Iconic-Font.woff")]
+             ["public/fonts/Material-Design-Iconic-Font.woff2" (render "public/fonts/Material-Design-Iconic-Font.woff2")]
              )))

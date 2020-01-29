@@ -20,10 +20,34 @@ In your `.clojure/deps.edn`:
 
 After you cloned the repo to your local disk:
 
-clj -A:new  <path-to-amplitude-template repo>::amplitude-template omnywayLabs/testProject
+```
+clj -A:new  <path-to-amplitude-template repo>::amplitude-template omnyway-labs/test-project
+```
 
-__NOTE:__ do not have dashes or underscores in the project group / name. Stupid Javascript freaks out 
+> __NOTE:__ If your have dashes or underscores in the project group / name. 
+> Stupid Javascript freaks out, so this template will convert dashes to underscores. 
+> I.E. if you use the project name `omnyway-labs/test-project`, it will turn the namespace into `omnyway_labs.test_project`
+
+### The `data` map that is passed into the renderer looks like:
+
+```clj
+{:date 2020-01-29,
+ :group omnyway-labs,
+ :name test-project,
+ :sanitized test_project,
+ :year 2020,
+ :template-nested-dirs {{nested-dirs}},
+ :artifact test-project,
+ :developer Rberger,
+ :nested-dirs omnyway_labs/test_project,
+ :version 0.1.0-SNAPSHOT,
+ :namespace omnyway_labs.test_project,
+ :user rberger,
+ :raw-name omnyway-labs/test-project}
+```
+
 
 ## License
 MIT License
 Copyright © 2020 Omnyway, Inc.
+

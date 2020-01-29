@@ -3,19 +3,17 @@
   (:require [clj.new.templates :refer [renderer project-data project-name sanitize sanitize-ns ->files]]))
 
 (defn amplitude-template
-  "FIXME: write documentation"
+  "Generate an amplitude application"
   [name]
   (println "name: " name)
   (let [render (renderer "amplitude-template")
         base-data (project-data name)
-        _ (println "base-data: " base-data)
         namespace {:namespace (sanitize (sanitize-ns name))}
-        _ (println "namespace: " namespace)
         data   (merge base-data namespace)]
 
     (println "Generating a project called"
              (project-name name)
-             "based on the 'app' template.")
+             "based on the 'amplitude' template.")
     (println "Data: " data)
     (->files data
              [".gitignore" (render "gitignore" data)]

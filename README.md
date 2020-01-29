@@ -16,7 +16,17 @@ In your `.clojure/deps.edn`:
      ...}
 ```
 
+### Generate the project from the amplitude-template git repo
+
+Unfortunately there doesn't seem a way to just get the "latest". You need to specify the SHA in the git/url:
+
+```
+clj -A:new  https://github.com/omnyway-labs/amplitude-template@8aca66a0826036278cc78ab2c5d0a800b094d8fe omnyway-labs/test-project
+```
+
 ### Generate the project from a local git clone of the amplitude-template repo
+
+As an alternative, you can clone the amplitude-template repo locally and use it locally
 
 After you cloned the repo to your local disk:
 

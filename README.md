@@ -65,19 +65,19 @@ code will be `src/omnyway_labs/test_project/*.cljs`
 ### The `data` map that is passed into the renderer looks like:
 
 ```clj
-{:date 2020-01-29,
- :group omnyway-labs,
- :name test-project,
- :sanitized test_project,
- :year 2020,
- :template-nested-dirs {{nested-dirs}},
- :artifact test-project,
- :developer Rberger,
- :nested-dirs omnyway_labs/test_project,
- :version 0.1.0-SNAPSHOT,
- :namespace omnyway_labs.test_project,
- :user rberger,
- :raw-name omnyway-labs/test-project}
+{:date 2020-01-29, 
+  :group omnyway-labs, 
+  :name test-project, 
+  :sanitized test_project, 
+  :year 2020, 
+  :template-nested-dirs {{nested-dirs}}, 
+  :artifact test-project, 
+  :developer Rberger, 
+  :nested-dirs test_project, 
+  :version 0.1.0-SNAPSHOT, 
+  :namespace test_project, 
+  :user rberger, 
+  :raw-name omnyway-labs/test-project}
 ```
 
 

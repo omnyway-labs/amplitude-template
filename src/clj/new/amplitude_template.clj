@@ -1,15 +1,20 @@
+
 (ns clj.new.amplitude-template
   "Generate an AWS Amplify / Clojurescript / Re-Frame project."
-  (:require [clj.new.templates :refer [renderer project-data project-name sanitize sanitize-ns ->files]]))
+  (:require [clj.new.templates :refer [renderer project-data project-name sanitize sanitize-ns name-to-path ->files]]))
 
 (defn amplitude-template
   "Generate an amplitude application"
-  [name]
-  (println "name: " name)
-  (let [render (renderer "amplitude-template")
+  [name & args]
+  (let [features (into #{} args)
+        render (renderer "amplitude-template")
+        group-in-ns? (features "+group-in-ns")
         base-data (project-data name)
-        namespace {:namespace (sanitize (sanitize-ns name))}
-        data   (merge base-data namespace)]
+        namespace (if-not group-in-ns?
+                    {:namespace (sanitize (project-name name))}
+                    {:namespace (sanitize (sanitize-ns name))})
+        nested-dirs (if-not group-in-ns? {:nested-dirs (name-to-path (:namespace namespace))})
+        data   (merge base-data namespace nested-dirs)]
 
     (println "Generating a project called"
              (project-name name)

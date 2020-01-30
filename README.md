@@ -33,10 +33,31 @@ After you cloned the repo to your local disk:
 ```
 clj -A:new  <path-to-amplitude-template repo>::amplitude-template omnyway-labs/test-project
 ```
+### Simple Project Namespace by Default
 
-> __NOTE:__ If your have dashes or underscores in the project group / name. 
-> Stupid Javascript freaks out, so this template will convert dashes to underscores. 
-> I.E. if you use the project name `omnyway-labs/test-project`, it will turn the namespace into `omnyway_labs.test_project`
+By default the `namespace` and the `nested-paths` will be based on the sanitized project `name`
+only. It will not include the `group` portion that is specified on the command
+line.
+
+If you used `omnyway-labs/test-project` on the command line, then by default the
+`namespace` and `nested-path` under `src` will be `test_project`. 
+
+(Javascript doesn't allow dashes so dashes are converted to underscores)
+
+If you want the full namespace with the `group` then add the flag `+group-in-ns` to the end of the command line.
+In this case the command:
+
+```
+clj -A:new  https://github.com/omnyway-labs/amplitude-template@8aca66a0826036278cc78ab2c5d0a800b094d8fe omnyway-labs/test-project +group-in-ns
+```
+
+will create the namespace `omnyway_labs.test_project` and the `src` path to the
+code will be `src/omnyway_labs/test_project/*.cljs`
+
+> __NOTE:__ If your have dashes or underscores in the project group / name.
+> Javascript freaks out, so this template will convert dashes to underscores.
+> I.E. if you use the project name `omnyway-labs/test-project`, it will turn the
+> namespace into `test_project` or `omnyway_labs.test_project` 
 
 ### The `data` map that is passed into the renderer looks like:
 

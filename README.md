@@ -80,6 +80,10 @@ code will be `src/omnyway_labs/test_project/*.cljs`
   :raw-name omnyway-labs/test-project}
 ```
 
+## Authors
+
+[Isaac "Icylisper" Praveen](https://github.com/icylisper)
+[Robert J. Berger](https://github.com/rberger)
 
 ## License
 MIT License

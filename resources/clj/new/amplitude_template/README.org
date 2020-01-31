@@ -113,3 +113,14 @@ use =shadow= and select "app" as the app-id
 amplify env pull
 make gql
 #+END_SRC
+
+* Template Authors
+
+[[https://github.com/icylisper][Isaac "Icylisper" Praveen]]
+[[https://github.com/rberger][Robert J. Berger]]
+
+* License
+MIT License
+Copyright © {{year}} Omnyway, Inc.
+
+
